@@ -1,0 +1,41 @@
+.title-bar {
+    display: flex;
+    h3 {
+        margin-top: 0;
+    }
+}
+
+.filters {
+    // padding-top: 0.5rem;
+    // padding-bottom: 9px;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    .label {
+        min-width: 200px;
+        // height: 30px;
+        // margin-top: 1rem;
+        // margin-bottom: 1rem;
+        // margin-right: 0.25rem;
+        display: none;
+        flex-grow: 1;
+        align-self: flex-start;
+    }
+    md-input-container {
+        min-width: 200px;
+        margin-right: 0.25rem;
+        flex-grow: 1;
+    }
+    md-select {
+        min-width: 200px;
+        // max-width: 25%;
+        // margin-top: 15px;
+        // margin-bottom: 15px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 0.25rem;
+        flex-grow: 1;
+        // font-size: 14px;
+    }
+}

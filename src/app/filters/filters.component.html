@@ -1,0 +1,29 @@
+<!--<md-card style='height: 32px; background-color: lightgrey;'>
+    <h5>Filters</h5>
+</md-card>-->
+<md-card class='filters '>
+    <!--<div class='title-bar'>
+        <h3 class='f5 fw4 lh-solid'>Filters</h3>
+        <button md-button color='accent'>RESET FILTERS</button>
+    </div>-->
+    <!--<md-card-content>-->
+    <div class='label'>Filters:
+        <div>Use theses to search</div>
+    </div>
+    <md-input-container floatPlaceholder='false' style='font-sidze: 16px;'>
+        <input mdInput placeholder="Search">
+    </md-input-container>
+    <md-select placeholder="{{control.name}}" *ngFor='let control of stub.categories'>
+        <md-option value="option" *ngFor='let option of (control | getOptions)'>{{option}}</md-option>
+    </md-select>
+    <!--<md-input-container *ngFor='let control of stub.categories' color='accent'>
+        <input mdInput placeholder="{{control.name}}" color='accent'>
+
+    </md-input-container>-->
+
+
+    <!--</md-card-content>-->
+    <!--<md-card-actions>
+        <button md-button color='accent'>RESET FILTERS</button>
+    </md-card-actions>-->
+</md-card>

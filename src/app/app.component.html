@@ -1,3 +1,33 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar class='app-bar mat-elevation-z5' color='primary'></md-toolbar>
+<md-sidenav-container>
+    <md-sidenav mode="side" opened="true">
+        <md-nav-list>
+
+            <a md-list-item href="..." *ngFor="let link of stub.links"> {{link.name}} </a>
+
+        </md-nav-list>
+    </md-sidenav>
+    <div class="my-content">
+        <md-toolbar class='content-bar mmat-elevation-z10' color='primary'><span>Events&nbsp;</span><span>//&nbsp;</span>
+            <span class='f5 fw4'>Use filters to refine search</span>
+            <span fxFlex="100%"></span>
+            <!--<md-input-container floatPlaceholder='false' style='font-size: 16px;'>
+                <input mdInput placeholder="Favorite food" value="Sushi">
+            </md-input-container>-->
+        </md-toolbar>
+        <!--<h1 class='title-bar mt0 f5 fw5'>Search</h1>-->
+        <div class='top'>
+            <!--<md-toolbar class='mmat-elevation-z10' color='primary'><span>Events </span><span>// </span></md-toolbar>-->
+            <app-filters class='mtt3 mb3'></app-filters>
+        </div>
+
+        <div class='bottom'>
+            <!--<md-card class='matt-elevation-z10' color='accent'><span>Filters </span><span>// </span><button md-button color='accent'>RESET FILTERS</button></md-card>-->
+            <!--<md-card>Filters</md-card>-->
+
+            <ngx-datatable class="my-theme" [rows]="stub.rows" [columns]="stub.columns" [columnMode]="'force'" [headerHeight]="48" [footerHeight]="48" [rowHeight]="'auto'" [reorderable]="reorderable">
+            </ngx-datatable>
+        </div>
+
+    </div>
+</md-sidenav-container>
