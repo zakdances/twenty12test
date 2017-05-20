@@ -19,7 +19,11 @@ md-sidenav-container,
 md-sidenav {
     width: 218px;
     * {
+        font-size: 14px !important;
         color: white;
+    }
+    md-divider {
+        border-top-color: rgba(#e4d836, 0.75) !important;
     }
     color: white;
     background-color: #222 !important;
@@ -31,10 +35,19 @@ app-filters {
 
 .app-bar {
     position: relative;
+    background-color: #fff !important;
     z-index: 5;
+    .logo {
+        margin-right: 1rem;
+    }
+    .mat-mini-fab:not(:last-child) {
+        color: #444;
+        background-color: transparent !important;
+        box-shadow: none;
+    }
 }
 
-span.mat-select-placeholder.mat-floating-placeholder {
+.mat-select-placeholder.mat-floating-placeholder {
     width: auto !important;
     transform: scale(.75) translateY(7px) !important;
 }

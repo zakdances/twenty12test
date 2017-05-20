@@ -5,6 +5,7 @@
         // width: calc(100% - 4rem);
         // margin-left: auto;
         // margin-right: auto;
+        display: none;
         // md-toolbar-row {
         //     align-items: flex-end;
         // }
@@ -13,25 +14,53 @@
         // height: 15rem;
         padding: 1rem 1rem 0.005rem 1rem;
         // border-bottom: 1px solid gainsboro;
-        background-color: #ffeb3b;
+        // background-color: #ffeb3b;
         position: relative;
+        // z-index: 2;
         &:before {
             content: '';
             width: 100%;
-            height: calc(100% + 3rem);
-            border-bottom: 1px solid gainsboro;
+            height: calc(100% - 0rem);
+            // border-bottom: 1px solid gainsboro;
             display: block;
             position: absolute;
             top: 0;
             left: 0;
-            background-color: #ffeb3b;
-            box-shadow: inset 0 -48px 0 #ff4d4d;
+            // background-color: #ffeb3b;
+            // background-color: indianred;
+            // background-color: #ababab;
+            background-color: #e4d836;
+            // background-color: #FFF176;
+            // background: linear-gradient( to bottom, #444, #666);
+            // box-shadow: inset 0 -48px 0 grey;
             z-index: -1;
         }
     }
+    md-card.middle {
+        box-sizing: border-box;
+        min-height: 56px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        // border-top: 1px solid #9E9E9E;
+        display: flex;
+        align-items: center;
+        color: #aaa;
+        // color: #fff;
+        // box-shadow: none !important;
+        // background-color: #999 !important;
+        // background-color: #ffeb3b;
+        // background-color: indianred;
+        // background-color: #bbb;
+        // background-color: #ecd453;
+        background-color: #e4d836;
+        // md-chip {
+        //     border: 1px solid #aaa;
+        // }
+    }
     .bottom {
-        padding: 0rem 0rem 2rem 0rem;
+        padding: 0rem 0 1rem 0;
         // position: relative;
+        // z-index: 1;
         // &:before {
         //     content: '';
         //     width: 100%;

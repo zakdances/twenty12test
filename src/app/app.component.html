@@ -1,9 +1,28 @@
-<md-toolbar class='app-bar mat-elevation-z5' color='primary'></md-toolbar>
+<md-toolbar class='app-bar mat-elevation-z6' colorr='primary'>
+    <img class='logo' src='assets/logo.png'>
+    <div>
+        <div class='fw6 blue'>My Career</div>
+        <div class='f6 fw4 light-silver'>Recruiting and Career Management (CMS)</div>
+    </div>
+    <span fxFlex="100%"></span>
+    <!--<md-icon>home</md-icon>
+    <md-icon>lightbulb_outline</md-icon>
+    <md-icon>bug_report</md-icon>
+    <md-icon>crop_square</md-icon>
+    <md-icon>question_answer</md-icon>
+    <md-icon>settings</md-icon>
+    <md-icon>phone_in_talk</md-icon>-->
+    <!--<button md-mini-fab><md-icon>account_circle</md-icon></button>-->
+    <button md-mini-fab *ngFor="let icon of topRightIcons"><md-icon>{{icon}}</md-icon></button>
+</md-toolbar>
 <md-sidenav-container>
-    <md-sidenav mode="side" opened="true">
-        <md-nav-list>
+    <md-sidenav class='mat-elevation-z5' mode="side" [opened]="navOpen">
+        <md-nav-list color='accent'>
 
-            <a md-list-item href="..." *ngFor="let link of stub.links"> {{link.name}} </a>
+            <ng-container *ngFor="let link of links">
+                <a md-list-item href="..." *ngIf='link.name !== "divider"'> {{link.name}} </a>
+                <md-divider *ngIf='link.name === "divider"'></md-divider>
+            </ng-container>
 
         </md-nav-list>
     </md-sidenav>
@@ -17,15 +36,32 @@
         </md-toolbar>
         <!--<h1 class='title-bar mt0 f5 fw5'>Search</h1>-->
         <div class='top'>
+            <!--<md-card>Events</md-card>-->
             <!--<md-toolbar class='mmat-elevation-z10' color='primary'><span>Events </span><span>// </span></md-toolbar>-->
-            <app-filters class='mtt3 mb3'></app-filters>
+            <app-filters class='mtt3 mbb3'></app-filters>
+
         </div>
 
-        <div class='bottom'>
+        <div class='bottom' style='z-index: -1'>
             <!--<md-card class='matt-elevation-z10' color='accent'><span>Filters </span><span>// </span><button md-button color='accent'>RESET FILTERS</button></md-card>-->
             <!--<md-card>Filters</md-card>-->
+            <md-card class='middle mtt2 mbb3 matt-elevation-z8'>
+                <span class='f6 fw4' style=''>Filtered by:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <md-chip-list>
+                    <md-chip color="accent" selected="true" *ngFor='let control of (filters.all | filterChips: "filters1")'>{{control.selectedOption.value}}</md-chip>
+                    <!--<md-chip color="primary" selected="true">Two fish</md-chip>
+                    <md-chip color="primary" selected="true">Primary fish</md-chip>
+                    <md-chip color="primary" selected="true">Accent fish</md-chip>-->
+                </md-chip-list>
+            </md-card>
+            <ngx-datatable class="mtt3 my-theme mat-elevation-z20" [rows]="stub.rows | filteredList: filters.all : 'filters1'" [columns]="columns" [columnMode]="'force'" [headerHeight]="48" [footerHeight]="48" [rowHeight]="'auto'">
 
-            <ngx-datatable class="my-theme" [rows]="stub.rows" [columns]="stub.columns" [columnMode]="'force'" [headerHeight]="48" [footerHeight]="48" [rowHeight]="'auto'" [reorderable]="reorderable">
+                <ng-template #eventDateCell let-row="row" let-value="value" let-i="index">
+                    <span>{{value | amUtc | amDateFormat: 'MM-DD-YYYY'}}</span>
+                    <!--<md-input-container style="padding-top: 10px;">
+            <input type='date' mdInput placeholder="date" value="2013-01-08">
+        </md-input-container>-->
+                </ng-template>
             </ngx-datatable>
         </div>
 

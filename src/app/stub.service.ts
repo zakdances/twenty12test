@@ -1,52 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { Event, newEvent } from './event';
+
 
 @Injectable()
 export class StubService {
-  links = [
-    {
-      name: 'home'
-    },{
-      name: 'Students'
-    },
-    {
-      name: 'Employers'
-    },
-    {
-      name: 'Contacts'
-    },
-    {
-      name: 'Tasks'
-    },
-    {
-      name: 'Activity Stream'
-    },
-    {
-      name: 'Reporting Dashboards'
-    },
-    {
-      name: 'Custom Reports'
-    },
-    {
-      name: '12Twenty Reports'
-    }
-  ]
-  rows = [
-    { eventName: '8371kkasr355ffafm', eventDate: 'Male', eventStatus: 'Swimlane', registrants: 0 },
-    { eventName: 'Dany', eventDate: 'Male', eventStatus: 'KFC', registrants: 9 },
-    { eventName: 'Molly', eventDate: 'Female', eventStatus: 'Burger King', registrants: 15 },
-    { eventName: '8371kkasr355ffafm', eventDate: 'Male', eventStatus: 'Swimlane', registrants: 43 },
-    { eventName: 'Dany', eventDate: 'Male', eventStatus: 'KFC', registrants: 0 },
-    { eventName: 'Molly', eventDate: 'Female', eventStatus: 'Burger King', registrants: 0 }
-  ];
-  columns = [
-    { name: 'Event Name' },
-    { name: 'Event Date' },
-    { name: 'Event Status' },
-    {
-      prop: 'registrants',
-      name: 'Registrants (Waitlist)'
-    }
-  ];
+  
+  rows = [];
+  
   categories = [
     {
       name: 'Student Group'
@@ -95,6 +55,19 @@ export class StubService {
       name: 'Career Center Account Center'
     }
   ]
-  constructor() { }
+  constructor() { 
+    this.loadRows();
+  }
+  loadRows() {
+    console.log('prepared!!!');
+    this.rows = [
+    newEvent('8371kkasr355ffafm', 1, 'Swimlane', 0),
+    newEvent('A Large Gathering', 563334235545, 'KFC', 9),
+    newEvent('The County Fair', 635963574, 'Burger King', 15),
+    newEvent('2371kkasr355ffafm', 1, 'Swimlane', 43),
+    newEvent('Meeting of the Minds', 1949999499999, 'KFC', 0),
+    newEvent('Transformers', 1235678999, 'Burger King', 6)
+  ];
+  }  
 
 }
